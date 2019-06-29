@@ -38,14 +38,12 @@ public class ClientDAOImpl implements DAO {
     }
 
     private int getId(){
-        ResultSet rs = null;
         int result = 0;
         try {
-            Statement statement = connection.createStatement();
-            rs = statement.executeQuery("SELECT COUNT(id) FROM client");
-
+            PreparedStatement ps = connection.prepareStatement("SELECT COUNT(id) FROM client");
+            ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                result = rs.getInt(0);
+                result = rs.getInt(1);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -65,9 +63,9 @@ public class ClientDAOImpl implements DAO {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String surName = rs.getString("surname");
-                String fatherName = rs.getString("father_name");
+                String fatherName = rs.getString("fathername");
                 String address = rs.getString("address");
-                String phoneNumber = rs.getString("phone_number");
+                String phoneNumber = rs.getString("phonenumber");
                 String password = rs.getString("password");
 
                 Client client = new Client(id, name, surName, fatherName, address, phoneNumber, password);

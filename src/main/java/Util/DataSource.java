@@ -14,9 +14,9 @@ public class DataSource {
             Properties properties = new Properties();
             properties.setProperty("user", "root");
             properties.setProperty("password", "qwerty");
-//            properties.setProperty("useUnicode", "true");
-//            properties.setProperty("characterEncoding", "utf8");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/medical_records", properties);
+         properties.setProperty("useUnicode", "true");
+           properties.setProperty("characterEncoding", "utf8");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/medicalRecords", properties);
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
