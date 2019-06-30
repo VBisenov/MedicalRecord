@@ -3,8 +3,6 @@ package Servlets;
 import DAO.ClientDAOImpl;
 import ObjectModel.Client;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,6 +39,6 @@ public class RegistrationServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
-        req.getRequestDispatcher("/index.html").forward(req, resp);
+        req.getRequestDispatcher("/lk.jsp").forward(req, resp);
     }
 }
