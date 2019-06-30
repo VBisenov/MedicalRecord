@@ -53,8 +53,7 @@ public class ClientDAOImpl implements DAO {
     }
 
 
-
-    private ArrayList<Client> getClients() {
+    public ArrayList<Client> getClients() {
         ArrayList<Client> clients = new ArrayList<>();
         String SQL = "SELECT * FROM client";
         try {

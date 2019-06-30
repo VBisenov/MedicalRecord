@@ -171,17 +171,20 @@ To change this template use File | Settings | File Templates.
 					</div>
 					<ul class="nav">
 						<li class="nav-item active">
-							<a href="index.jsp">
+							<a href="lk.jsp">
 								<i class="la la-dashboard"></i>
 								<p>Информационная панель</p>
 							</a>
 						</li>
 						
 						<li class="nav-item">
-							<a href="forms.html">
-								<i class="la la-keyboard-o"></i>
-								<p>Запись к врачу</p>
+							<form action="/form?name=<%out.println(request.getAttribute("name"));%>" method="post">
+								<button>
+								Запись к врачу
+								</button>
 							</a>
+							</form>
+
 						</li>
 
 						<li class="nav-item">
@@ -212,34 +215,10 @@ To change this template use File | Settings | File Templates.
 							
 						</div>
 						<div class="row">
-							<div class="col-md-4">
-								<div class="card">
-									<div class="card-header">
-										<h4 class="card-title">Диаграмма посещений врачей</h4>
-										<p class="card-category">
-										За год</p>
-									</div>
-									<div class="card-body">
-										<div id="monthlyChart" class="chart chart-pie"></div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-8">
-								<div class="card">
-									<div class="card-header">
-										<h4 class="card-title">2019 год</h4>
-										<p class="card-category">
-										Количество посещений</p>
-									</div>
-									<div class="card-body">
-										<div id="salesChart" class="chart"></div>
-									</div>
-								</div>
-							</div>
 							<div class="col-md-6">
 								<div class="card">
 									<div class="card-header ">
-										<h4 class="card-title">Часто посещаемые врачи</h4>
+										<h4 class="card-title">История посещения</h4>
 										
 									</div>
 									<div class="card-body">
@@ -250,6 +229,7 @@ To change this template use File | Settings | File Templates.
 													<th scope="col">Фамилия</th>
 													<th scope="col">Имя Отчество</th>
 													<th scope="col">Должность</th>
+													<th scope="col">Оценить</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -258,18 +238,21 @@ To change this template use File | Settings | File Templates.
 													<td>Рыженкова</td>
 													<td>Ирина Борисовна</td>
 													<td>участковый-терапевт</td>
+													<td><button><a href="/quality">оценить</a></button></td>
 												</tr>
 												<tr>
 													<td>2</td>
 													<td>Куликов</td>
 													<td>Евгений Андреевич</td>
 													<td>врач-кардиолог</td>
+													<td><button><a href="quality.html">оценить</a></button></td>
 												</tr>
 												<tr>
 													<td>3</td>
 													<td>Сергеева</td>
 													<td>Светлана Александровна</td>
 													<td>врач-эндокринолог</td>
+													<td><button><a href="quality.html">оценить</a></button></td>
 												</tr>
 											</tbody>
 										</table>
