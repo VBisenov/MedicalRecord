@@ -163,39 +163,45 @@ To change this template use File | Settings | File Templates.
 					</div>
 				</div>
 			</div>
-			<ul class="nav">
-				<li class="nav-item">
-					<a href="lk.jsp">
+			<<ul class="nav">
+			<li class="nav-item active">
+				<form action="lk.jsp" method="post">
+					<button>
 						<i class="la la-dashboard"></i>
 						<p>Информационная панель</p>
-					</a>
-				</li>
+					</button>
+				</form>
+			</li>
 
-				<li class="nav-item">
-					<a href="forms.jsp">
-						<i class="la la-keyboard-o"></i>
+			<li class="nav-item">
+				<form action="/form?name=<%out.println(request.getAttribute("name"));%>" method="post">
+					<button>
+						<i class="la la-th"></i>
 						<p>Запись к врачу</p>
-					</a>
-				</li>
+					</button>
+				</form>
 
+			</li>
 
-
-				<li class="nav-item">
-					<a href="tables.html">
+			<li class="nav-item">
+				<form action="tables.html" method="post">
+					<button>
 						<i class="la la-th"></i>
 						<p>Запрос карты</p>
-					</a>
-				</li>
+					</button>
+				</form>
+			</li>
 
-				<li class="nav-item">
-					<a href="notifications.html">
-						<i class="la la-bell"></i>
+			<li class="nav-item">
+				<form action="notifications.html" method="post">
+					<button>
+						<i class="la la-th"></i>
 						<p>Оповещения</p>
-						<span class="badge badge-success">3</span>
-					</a>
-				</li>
+					</button>
+				</form>
+			</li>
 
-			</ul>
+		</ul>
 		</div>
 	</div>
 	<div class="main-panel">
@@ -208,52 +214,54 @@ To change this template use File | Settings | File Templates.
 							<div class="card-header">
 								<div class="card-title">Заполните форму</div>
 							</div>
+							<form action="/visitpopulate" method="post">
 							<div class="card-body">
 								<div class="form-group">
-									<label for="clinik">Больница</label>
-									<select class="form-control" name="rateFriendly">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
+									<label>Больница</label>
+									<select class="form-control" name="hospitalName">
+										<option>Больница им.Пирогова</option>
+										<option>Больница им.Середавина</option>
+										<option>Клиники мед.университета</option>
 									</select>
 								</div>
 								<div class="form-group">
-									<label for="spec">Специальность</label>
-									<select class="form-control" name="rateFriendly">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
+									<label>Специальность</label>
+									<select class="form-control" name="speciality">
+										<option>Терапевт</option>
+										<option>Хирург</option>
+										<option>Лор</option>
+										<option>Окулист</option>
+										<option>Уролог</option>
 									</select>
 								</div>
 								<div class="form-group">
-									<label for="doctor">Врач</label>
-									<select class="form-control" name="rateFriendly">
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-										<option>5</option>
+									<label>Врач</label>
+									<select class="form-control" name="doctorName">
+										<option>Иванов И.И</option>
+										<option>Петрова Т.А</option>
+										<option>Егоров А.О</option>
+										<option>Бастриков П.А</option>
+										<option>Косолапов М.А</option>
 									</select>
 								</div>
 
 								<div class="form-group">
-									<label for="date">Дата</label>
-									<input type="date" name="calendar">
+									<label>Дата</label>
+									<input type="date" name="date">
+									<input type="text" name="text">
 								</div>
 								<div class="form-group">
-									<label for="time">Время</label>
-									<input type="time" name="calendar">
+									<label>Время</label>
+									<input type="time" name="time">
 								</div>
 
 
 								<div class="card-action">
-									<button class="btn btn-success">Записаться</button>
+									<button class="btn btn-success">
+										Записаться</button>
 								</div>
 							</div>
+							</form>
 						</div>
 
 					</div>

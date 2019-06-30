@@ -171,35 +171,40 @@ To change this template use File | Settings | File Templates.
 					</div>
 					<ul class="nav">
 						<li class="nav-item active">
-							<a href="lk.jsp">
-								<i class="la la-dashboard"></i>
-								<p>Информационная панель</p>
-							</a>
+							<form action="lk.jsp" method="post">
+								<button class="buttonView">
+									<i class="la la-dashboard"></i>
+									<p>Информационная панель</p>
+								</button>
+							</form>
 						</li>
 						
 						<li class="nav-item">
 							<form action="/form?name=<%out.println(request.getAttribute("name"));%>" method="post">
-								<button>
-								Запись к врачу
+								<button class="buttonView">
+									<i class="la la-th"></i>
+									<p>Запись к врачу</p>
 								</button>
-							</a>
 							</form>
 
 						</li>
 
 						<li class="nav-item">
-							<a href="tables.html">
-								<i class="la la-th"></i>
-								<p>Запрос карты</p>
-							</a>
+							<form action="tables.html" method="post">
+								<button class="buttonView">
+									<i class="la la-th"></i>
+									<p>Запрос карты</p>
+								</button>
+							</form>
 						</li>
 
 						<li class="nav-item">
-							<a href="notifications.html">
-								<i class="la la-bell"></i>
-								<p>Оповещения</p>
-								<span class="badge badge-success">3</span>
-							</a>
+							<form action="notifications.html" method="post">
+								<button class="buttonView">
+									<i class="la la-th"></i>
+									<p>Оповещения</p>
+								</button>
+							</form>
 						</li>
 																		
 					</ul>
@@ -219,6 +224,50 @@ To change this template use File | Settings | File Templates.
 								<div class="card">
 									<div class="card-header ">
 										<h4 class="card-title">История посещения</h4>
+
+									</div>
+									<div class="card-body">
+										<table class="table table-head-bg-success table-striped table-hover">
+											<thead>
+											<tr>
+												<th scope="col">№</th>
+												<th scope="col">Фамилия</th>
+												<th scope="col">Имя Отчество</th>
+												<th scope="col">Должность</th>
+												<th scope="col">Оценить</th>
+											</tr>
+											</thead>
+											<tbody>
+											<tr>
+												<td>1</td>
+												<td>Рыженкова</td>
+												<td>Ирина Борисовна</td>
+												<td>участковый-терапевт</td>
+												<td><button><a href="/quality">оценить</a></button></td>
+											</tr>
+											<tr>
+												<td>2</td>
+												<td>Куликов</td>
+												<td>Евгений Андреевич</td>
+												<td>врач-кардиолог</td>
+												<td><button><a href="quality.html">оценить</a></button></td>
+											</tr>
+											<tr>
+												<td>3</td>
+												<td>Сергеева</td>
+												<td>Светлана Александровна</td>
+												<td>врач-эндокринолог</td>
+												<td><button><a href="quality.html">оценить</a></button></td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="card">
+									<div class="card-header ">
+										<h4 class="card-title">Предстоящие посещения</h4>
 										
 									</div>
 									<div class="card-body">
@@ -229,30 +278,24 @@ To change this template use File | Settings | File Templates.
 													<th scope="col">Фамилия</th>
 													<th scope="col">Имя Отчество</th>
 													<th scope="col">Должность</th>
-													<th scope="col">Оценить</th>
+													<th scope="col">Дата и время</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
 													<td>1</td>
-													<td>Рыженкова</td>
-													<td>Ирина Борисовна</td>
+													<td>Егорова</td>
+													<td>Ольга Евгеньевна</td>
 													<td>участковый-терапевт</td>
-													<td><button><a href="/quality">оценить</a></button></td>
+													<td>29.11.2019 10:00</td>
+
 												</tr>
 												<tr>
 													<td>2</td>
-													<td>Куликов</td>
-													<td>Евгений Андреевич</td>
+													<td>Петрова</td>
+													<td>Анастасия Андреевна</td>
 													<td>врач-кардиолог</td>
-													<td><button><a href="quality.html">оценить</a></button></td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>Сергеева</td>
-													<td>Светлана Александровна</td>
-													<td>врач-эндокринолог</td>
-													<td><button><a href="quality.html">оценить</a></button></td>
+													<td>30.11.2019 14:00</td>
 												</tr>
 											</tbody>
 										</table>
