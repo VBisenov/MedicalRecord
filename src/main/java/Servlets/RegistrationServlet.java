@@ -33,12 +33,7 @@ public class RegistrationServlet extends HttpServlet {
             dao.insert(client);
             System.out.println(name);
 
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
-        req.getRequestDispatcher("/lk.jsp").forward(req, resp);
+        req.getRequestDispatcher("/index.html").forward(req, resp);
     }
 }

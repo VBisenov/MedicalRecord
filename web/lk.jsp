@@ -123,7 +123,10 @@ To change this template use File | Settings | File Templates.
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#"><i class="ti-user"></i> Мой профиль</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#"><i class="fa fa-power-off"></i>Выйти</a>
+								<form action="/exit" method="post">
+									<button class="dropdown-item"><i class="fa fa-power-off"></i>Выйти</button>
+								</form>
+
 								</ul>
 								<!-- /.dropdown-user -->
 							</li>
@@ -203,192 +206,8 @@ To change this template use File | Settings | File Templates.
 				<div class="content">
 					<div class="container-fluid">
 						<h5 class="page-title">Информационная панель</h5>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="card card-stats card-warning">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-users"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Visitors</p>
-													<h4 class="card-title">1,294</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card card-stats card-success">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-bar-chart"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Sales</p>
-													<h4 class="card-title">$ 1,345</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card card-stats card-danger">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-newspaper-o"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Subscribers</p>
-													<h4 class="card-title">1303</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card card-stats card-primary">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-check-circle"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Order</p>
-													<h4 class="card-title">576</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-<!-- 							<div class="col-md-3">
-								<div class="card card-stats">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center icon-warning">
-													<i class="la la-pie-chart text-warning"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Number</p>
-													<h4 class="card-title">150GB</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card card-stats">
-									<div class="card-body ">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-bar-chart text-success"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Revenue</p>
-													<h4 class="card-title">$ 1,345</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card card-stats">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-times-circle-o text-danger"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Errors</p>
-													<h4 class="card-title">23</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card card-stats">
-									<div class="card-body">
-										<div class="row">
-											<div class="col-5">
-												<div class="icon-big text-center">
-													<i class="la la-heart-o text-primary"></i>
-												</div>
-											</div>
-											<div class="col-7 d-flex align-items-center">
-												<div class="numbers">
-													<p class="card-category">Followers</p>
-													<h4 class="card-title">+45K</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div> -->
-						</div>
-						<div class="row">
-							<div class="col-md-3">
-								<div class="card">
-									<div class="card-header">
-										<h4 class="card-title">Task</h4>
-										<p class="card-category">Complete</p>
-									</div>
-									<div class="card-body">
-										<div id="task-complete" class="chart-circle mt-4 mb-3"></div>
-									</div>
-									<div class="card-footer">
-										<div class="legend"><i class="la la-circle text-primary"></i> Completed</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-9">
-								<div class="card">
-									<div class="card-header">
-										<h4 class="card-title">World Map</h4>
-										<p class="card-category">
-										Map of the distribution of users around the world</p>
-									</div>
-									<div class="card-body">
-										<div class="mapcontainer">
-											<div class="map">
-												<span>Alternative content for the map</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+
+
 						
 							
 						</div>
@@ -420,7 +239,7 @@ To change this template use File | Settings | File Templates.
 							<div class="col-md-6">
 								<div class="card">
 									<div class="card-header ">
-										<h4 class="card-title">Часто посещяемые врачи</h4>
+										<h4 class="card-title">Часто посещаемые врачи</h4>
 										
 									</div>
 									<div class="card-body">
@@ -460,8 +279,8 @@ To change this template use File | Settings | File Templates.
 							<div class="col-md-6">
 								<div class="card card-tasks">
 									<div class="card-header ">
-										<h4 class="card-title">Tasks</h4>
-										<p class="card-category">To Do List</p>
+										<h4 class="card-title">Заметки</h4>
+										<p class="card-category">Важные дела</p>
 									</div>
 									<div class="card-body ">
 										<div class="table-full-width">
@@ -476,8 +295,8 @@ To change this template use File | Settings | File Templates.
 																</label>
 															</div>
 														</th>
-														<th>Task</th>
-														<th>Action</th>
+														<th>Задача</th>
+														<th>Действие</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -490,7 +309,7 @@ To change this template use File | Settings | File Templates.
 																</label>
 															</div>
 														</td>
-														<td>Planning new project structure</td>
+														<td>Сходить к терапервту 29.11.2019 в 12:00</td>
 														<td class="td-actions text-right">
 															<div class="form-button-action">
 																<button type="button" data-toggle="tooltip" title="Edit Task" class="btn btn-link <btn-simple-primary">
@@ -511,7 +330,7 @@ To change this template use File | Settings | File Templates.
 																</label>
 															</div>
 														</td>
-														<td>Update Fonts</td>
+														<td>Пройти флюорографию 30.11.2019</td>
 														<td class="td-actions text-right">
 															<div class="form-button-action">
 																<button type="button" data-toggle="tooltip" title="Edit Task" class="btn btn-link <btn-simple-primary">
@@ -532,7 +351,7 @@ To change this template use File | Settings | File Templates.
 																</label>
 															</div>
 														</td>
-														<td>Add new Post
+														<td>Забрать результаты флюорографии 31.11.2019
 														</td>
 														<td class="td-actions text-right">
 															<div class="form-button-action">
@@ -545,34 +364,14 @@ To change this template use File | Settings | File Templates.
 															</div>
 														</td>
 													</tr>
-													<tr>
-														<td>
-															<div class="form-check">
-																<label class="form-check-label">
-																	<input class="form-check-input task-select" type="checkbox">
-																	<span class="form-check-sign"></span>
-																</label>
-															</div>
-														</td>
-														<td>Finalise the design proposal</td>
-														<td class="td-actions text-right">
-															<div class="form-button-action">
-																<button type="button" data-toggle="tooltip" title="Edit Task" class="btn btn-link <btn-simple-primary">
-																	<i class="la la-edit"></i>
-																</button>
-																<button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-simple-danger">
-																	<i class="la la-times"></i>
-																</button>
-															</div>
-														</td>
-													</tr>
+
 												</tbody>
 											</table>
 										</div>
 									</div>
 									<div class="card-footer ">
 										<div class="stats">
-											<i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
+											<i class="now-ui-icons loader_refresh spin"></i> Обновлено 3 минуты назад
 										</div>
 									</div>
 								</div>
