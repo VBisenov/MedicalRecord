@@ -2,7 +2,6 @@ package DAO;
 
 import ObjectModel.Visit;
 import Util.DataSource;
-import org.springframework.context.annotation.ComponentScan;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
