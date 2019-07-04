@@ -15,12 +15,17 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        if(session.isNew())
+        {
+            req.getRequestDispatcher("index.html").forward(req, resp);
+        }
+
         req.setCharacterEncoding("UTF-8");
         String login = req.getParameter("login");
         String password = req.getParameter("pass");
         ClientDAOImpl dao = new ClientDAOImpl();
 
-        HttpSession session = req.getSession();
 
         if (login != null && password != null) {
             Client client = dao.login(login, password);
