@@ -116,8 +116,8 @@ To change this template use File | Settings | File Templates.
 								<div class="user-box">
 									<div class="u-img"><img src="assets/img/profile.jpg" alt="user"></div>
 									<div class="u-text">
-										<h4><%out.println(request.getAttribute("name"));%></h4>
-										<p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">Посмотреть профиль</a></div>
+										<h4><%out.println(session.getAttribute("name"));%></h4>
+										<p class="text-muted"><%out.println(session.getAttribute("phoneNumber"));%></p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">Посмотреть профиль</a></div>
 								</div>
 							</li>
 							<div class="dropdown-divider"></div>
@@ -140,7 +140,7 @@ To change this template use File | Settings | File Templates.
 				<div class="info">
 					<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									<%out.println(request.getAttribute("name"));%>
+									<%out.println(session.getAttribute("name"));%>
 									<span class="user-level"><font size="2">Пациент</font></span>
 									<span class="caret"></span>
 								</span>
@@ -165,8 +165,8 @@ To change this template use File | Settings | File Templates.
 			</div>
 			<<ul class="nav">
 			<li class="nav-item active">
-				<form action="lk.jsp" method="post">
-					<button>
+				<form action="/info" method="post">
+					<button class="buttonView">
 						<i class="la la-dashboard"></i>
 						<p>Информационная панель</p>
 					</button>
@@ -174,8 +174,8 @@ To change this template use File | Settings | File Templates.
 			</li>
 
 			<li class="nav-item">
-				<form action="/form?name=<%out.println(request.getAttribute("name"));%>" method="post">
-					<button>
+				<form action="/form" method="post">
+					<button class="buttonView">
 						<i class="la la-th"></i>
 						<p>Запись к врачу</p>
 					</button>
@@ -185,7 +185,7 @@ To change this template use File | Settings | File Templates.
 
 			<li class="nav-item">
 				<form action="tables.html" method="post">
-					<button>
+					<button class="buttonView">
 						<i class="la la-th"></i>
 						<p>Запрос карты</p>
 					</button>
@@ -194,7 +194,7 @@ To change this template use File | Settings | File Templates.
 
 			<li class="nav-item">
 				<form action="notifications.html" method="post">
-					<button>
+					<button class="buttonView">
 						<i class="la la-th"></i>
 						<p>Оповещения</p>
 					</button>
