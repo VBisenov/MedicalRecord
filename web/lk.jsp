@@ -171,7 +171,7 @@ To change this template use File | Settings | File Templates.
 						</li>
 
 						<li class="nav-item">
-							<form action="tables.html" method="post">
+							<form action="tables.jsp" method="post">
 								<button class="buttonView">
 									<i class="la la-th"></i>
 									<p>Запрос карты</p>
@@ -180,7 +180,7 @@ To change this template use File | Settings | File Templates.
 						</li>
 
 						<li class="nav-item">
-							<form action="notifications.html" method="post">
+							<form action="notifications.jsp" method="post">
 								<button class="buttonView">
 									<i class="la la-th"></i>
 									<p>Оповещения</p>

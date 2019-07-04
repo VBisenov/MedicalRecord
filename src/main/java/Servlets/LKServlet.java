@@ -19,16 +19,10 @@ public class LKServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
-
-        Client client = (Client) session.getAttribute("client");
-
-        session.setAttribute("name", client.getName());
-        session.setAttribute("phoneNumber", client.getPhone_number());
-
-        //req.setAttribute("name", client.getName());
-        //req.setAttribute("phoneNumber", client.getPhone_number());
-
-
+        if(session.isNew() || session.getAttribute("name") == null)
+        {
+            req.getRequestDispatcher("index.html").forward(req, resp);
+        }
         System.out.println("lk");
 
         req.getRequestDispatcher("lk.jsp").forward(req, resp);

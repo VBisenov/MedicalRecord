@@ -32,6 +32,8 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("client",client);
 
             session.setAttribute("client", client);
+            session.setAttribute("name", client.getName());
+            session.setAttribute("phoneNumber", client.getPhone_number());
 
             System.out.println(client);
 

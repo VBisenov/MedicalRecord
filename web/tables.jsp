@@ -1,8 +1,15 @@
-<!DOCTYPE html>
+<%--
+Created by IntelliJ IDEA.
+User: Vladimir
+Date: 09.05.2019
+Time: 16:22
+To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" charset="UTF-8"/>
-	<title>Оповещения</title>
+	<title>Запрос амбулаторной карты</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -37,7 +44,7 @@
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							
+								
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">Action</a>
@@ -103,20 +110,22 @@
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"><span >Хожиакбар</span></span> </a>
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"><span ><%out.println(session.getAttribute("name"));%></span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
 										<div class="u-img"><img src="assets/img/profile.jpg" alt="user"></div>
 										<div class="u-text">
-											<h4>Хожиакбар</h4>
-											<p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">Посмотреть профиль</a></div>
+											<h4><%out.println(session.getAttribute("name"));%></h4>
+											<p class="text-muted"><%out.println(session.getAttribute("phoneNumber"));%></p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">Посмотреть профиль</a></div>
 										</div>
 									</li>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#"><i class="ti-user"></i> Мой профиль</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#"><i class="fa fa-power-off"></i> Выйти</a>
+								<form action="/exit" method="post">
+									<button class="dropdown-item"><i class="fa fa-power-off"></i>Выйти</button>
+								</form>
 								</ul>
 								<!-- /.dropdown-user -->
 							</li>
@@ -133,7 +142,7 @@
 						<div class="info">
 							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									Хожиакбар
+									<%out.println(session.getAttribute("name"));%>
 									<span class="user-level"><font size="2">Пациент</font></span>
 									<span class="caret"></span>
 								</span>
@@ -177,7 +186,7 @@
 						</li>
 
 						<li class="nav-item">
-							<form action="tables.html" method="post">
+							<form action="tables.jsp" method="post">
 								<button class="buttonView">
 									<i class="la la-th"></i>
 									<p>Запрос карты</p>
@@ -186,7 +195,7 @@
 						</li>
 
 						<li class="nav-item">
-							<form action="notifications.html" method="post">
+							<form action="notifications.jsp" method="post">
 								<button class="buttonView">
 									<i class="la la-th"></i>
 									<p>Оповещения</p>
@@ -200,73 +209,205 @@
 			<div class="main-panel">
 				<div class="content">
 					<div class="container-fluid">
-						<h4 class="page-title">Notifications</h4>
+						<h4 class="page-title">Карта амбулаторного больного</h4>
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-6">
 								<div class="card">
 									<div class="card-header">
-										<div class="card-title">Bootstrap Notify</div>
-										<div class="card-category">Turn standard bootstrap alerts into "growl" like notifications from <a class="link" href="http://bootstrap-notify.remabledesigns.com/">Bootstrap Notify</a></div>
+										<div class="card-title">Информация за последний месяц</div>
 									</div>
 									<div class="card-body">
-										<div class="form">
-											<div class="form-group from-show-notify row">
-												<div class="col-lg-3 col-md-3 col-sm-12 text-right">
-													<label>Placement :</label>
-												</div>
-												<div class="col-lg-4 col-md-9 col-sm-12">
-													<select class="form-control input-fixed" id="notify_placement_from">
-														<option value="top">Top</option>
-														<option value="bottom">Bottom</option>
-													</select>
-													<select class="form-control input-fixed" id="notify_placement_align">
-														<option value="left">Left</option>
-														<option value="right" selected="">Right</option>
-														<option value="center">Center</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group from-show-notify row">
-												<div class="col-lg-3 col-md-3 col-sm-12 text-right">
-													<label>State :</label>
-												</div>
-												<div class="col-lg-4 col-md-9 col-sm-12">
-													<select class="form-control input-fixed" id="notify_state">
-														<option value="primary">Primary</option>
-														<option value="info">Info</option>
-														<option value="success">Success</option>
-														<option value="warning">Warning</option>
-														<option value="danger">Danger</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group from-show-notify row">
-												<div class="col-lg-3 col-md-3 col-sm-12 text-right">
-													<label>Style :</label>
-												</div>
-												<div class="col-lg-4 col-md-9 col-sm-12">
-													<select class="form-control input-fixed" id="notify_style">
-														<option value="plain">Plain</option>
-														<option value="withicon">With Icon</option>
-													</select>
-												</div>
-											</div>
+										<div class="card-sub">									
+											Эти действия были произведены за последний месяц
 										</div>
+										<table class="table mt-3">
+											<thead>
+												<tr>
+													<th scope="col">#</th>
+													<th scope="col">Врач</th>
+													<th scope="col">Запись</th>
+													<th scope="col">Дата</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Стефанов М.А - Хирург</td>
+													<td>Осмотр пройден, нарушений не выявлено</td>
+													<td>25.06.2019</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>Алышев А.О - Лор</td>
+													<td>Осмотр пройден, нарушений не выявлено</td>
+													<td>25.06.2019</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td>Солодов П.Н- Уролог</td>
+													<td>Осмотр пройден, нарушений не выявлено</td>
+													<td>25.06.2019</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
-									<div class="card-footer">
-										<div class="form">
-											<div class="form-group from-show-notify row">
-												<div class="col-lg-3 col-md-3 col-sm-12">
-
-												</div>
-												<div class="col-lg-4 col-md-9 col-sm-12">
-													<button id="displayNotif" class="btn btn-success">Display</button>
-												</div>
-											</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title">Striped Rows</div>
+									</div>
+									<div class="card-body">
+										<div class="card-sub">											
+											Add <code class="highlighter-rouge">.table-striped</code> to rows the striped table
+										</div>
+										<table class="table table-striped mt-3">
+											<thead>
+												<tr>
+													<th scope="col">#</th>
+													<th scope="col">First</th>
+													<th scope="col">Last</th>
+													<th scope="col">Handle</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Mark</td>
+													<td>Otto</td>
+													<td>@mdo</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>Jacob</td>
+													<td>Thornton</td>
+													<td>@fat</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td colspan="2">Larry the Bird</td>
+													<td>@twitter</td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="card-sub">
+											Add <code class="#highlighter-rouge">.table-striped-bg-*states</code> to change background from striped rows
+										</div>
+										<table class="table table-striped table-striped-bg-default mt-3">
+											<thead>
+												<tr>
+													<th scope="col">#</th>
+													<th scope="col">First</th>
+													<th scope="col">Last</th>
+													<th scope="col">Handle</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Mark</td>
+													<td>Otto</td>
+													<td>@mdo</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>Jacob</td>
+													<td>Thornton</td>
+													<td>@fat</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td colspan="2">Larry the Bird</td>
+													<td>@twitter</td>
+												</tr>
+											</tbody>
+										</table>
+										<table class="table table-striped table-striped-bg-danger mt-4">
+											<thead>
+												<tr>
+													<th scope="col">#</th>
+													<th scope="col">First</th>
+													<th scope="col">Last</th>
+													<th scope="col">Handle</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>Mark</td>
+													<td>Otto</td>
+													<td>@mdo</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>Jacob</td>
+													<td>Thornton</td>
+													<td>@fat</td>
+												</tr>
+												<tr>
+													<td>3</td>
+													<td colspan="2">Larry the Bird</td>
+													<td>@twitter</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title">Responsive Table</div>
+									</div>
+									<div class="card-body">
+										<div class="card-sub">
+											Create responsive tables by wrapping any table with <code class="highlighter-rouge">.table-responsive</code> <code class="highlighter-rouge">DIV</code> to make them scroll horizontally on small devices
+										</div>
+										<div class="table-responsive">
+											<table class="table table-bordered">
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>Table heading</th>
+														<th>Table heading</th>
+														<th>Table heading</th>
+														<th>Table heading</th>
+														<th>Table heading</th>
+														<th>Table heading</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th scope="row">1</th>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+													</tr>
+													<tr>
+														<th scope="row">2</th>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+													</tr>
+													<tr>
+														<th scope="row">3</th>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+														<td>Table cell</td>
+													</tr>
+												</tbody>
+											</table>
 										</div>
 									</div>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
@@ -281,27 +422,28 @@
 			</div>
 		</div>
 	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header bg-primary">
-					<h6 class="modal-title"><i class="la la-frown-o"></i> Under Development</h6>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body text-center">									
-					<p>Currently the pro version of the <b>Ready Dashboard</b> Bootstrap is in progress development</p>
-					<p>
-					<b>We'll let you know when it's done</b></p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-primary">
+				<h6 class="modal-title"><i class="la la-frown-o"></i> Under Development</h6>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body text-center">									
+				<p>Currently the pro version of the <b>Ready Dashboard</b> Bootstrap is in progress development</p>
+				<p>
+				<b>We'll let you know when it's done</b></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
+</div>
 </body>
 <script src="assets/js/core/jquery.3.2.1.min.js"></script>
 <script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
