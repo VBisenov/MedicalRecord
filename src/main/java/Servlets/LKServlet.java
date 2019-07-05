@@ -1,7 +1,9 @@
 package Servlets;
 
 import DAO.ClientDAOImpl;
+import DAO.VisitDAOImpl;
 import ObjectModel.Client;
+import ObjectModel.Visit;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +26,12 @@ public class LKServlet extends HttpServlet {
             req.getRequestDispatcher("index.html").forward(req, resp);
         }
         System.out.println("lk");
+
+        VisitDAOImpl visitDAO = new VisitDAOImpl();
+        ArrayList<Visit> visits = visitDAO.getVisits();
+
+        session.setAttribute("visits", visits);
+
 
         req.getRequestDispatcher("lk.jsp").forward(req, resp);
     }

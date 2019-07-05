@@ -1,12 +1,11 @@
 package DAO;
 
+import ObjectModel.Client;
 import ObjectModel.Visit;
 import Util.DataSource;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class VisitDAOImpl implements DAO {
     Connection connection =  DataSource.getConnection();
@@ -41,6 +40,28 @@ public class VisitDAOImpl implements DAO {
         }
         result++;
         return result;
+    }
+
+    public ArrayList<Visit> getVisits() {
+        ArrayList<Visit> visits = new ArrayList<>();
+        String SQL = "SELECT * FROM visit";
+        try {
+            ResultSet rs = DataSource.getConnection().createStatement().executeQuery(SQL);
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String doctorFullName = rs.getString("doctorFullName");
+                String doctorJobTitle = rs.getString("doctorJobTitle");
+                Date date = Date.valueOf(rs.getString("date"));
+                String time = rs.getString("time");
+                int rateId = rs.getInt("rate_id");
+
+                Visit visit = new Visit(id, doctorFullName, doctorJobTitle, time, date);
+                visits.add(visit);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return visits;
     }
 
     @Override

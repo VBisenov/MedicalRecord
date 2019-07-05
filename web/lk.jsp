@@ -6,6 +6,7 @@ Time: 16:22
 To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" charset="UTF-8"/>
@@ -212,34 +213,19 @@ To change this template use File | Settings | File Templates.
 											<thead>
 											<tr>
 												<th scope="col">№</th>
-												<th scope="col">Фамилия</th>
-												<th scope="col">Имя Отчество</th>
+												<th scope="col">ФИО</th>
 												<th scope="col">Должность</th>
 												<th scope="col">Оценить</th>
 											</tr>
 											</thead>
 											<tbody>
-											<tr>
-												<td>1</td>
-												<td>Рыженкова</td>
-												<td>Ирина Борисовна</td>
-												<td>участковый-терапевт</td>
-												<td><button><a href="/quality">оценить</a></button></td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Куликов</td>
-												<td>Евгений Андреевич</td>
-												<td>врач-кардиолог</td>
-												<td><button><a href="quality.html">оценить</a></button></td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>Сергеева</td>
-												<td>Светлана Александровна</td>
-												<td>врач-эндокринолог</td>
-												<td><button><a href="quality.html">оценить</a></button></td>
-											</tr>
+                                            <c:forEach items="${visits}" var="visit">
+                                                <tr>
+                                                    <td>${visit.id}</td>
+                                                    <td>${visit.doctorFullName}</td>
+                                                    <td>${visit.doctorJobTitle}</td>
+                                                </tr>
+                                            </c:forEach>
 											</tbody>
 										</table>
 									</div>
@@ -256,8 +242,7 @@ To change this template use File | Settings | File Templates.
 											<thead>
 												<tr>
 													<th scope="col">№</th>
-													<th scope="col">Фамилия</th>
-													<th scope="col">Имя Отчество</th>
+													<th scope="col">ФИО</th>
 													<th scope="col">Должность</th>
 													<th scope="col">Дата и время</th>
 												</tr>
@@ -265,16 +250,14 @@ To change this template use File | Settings | File Templates.
 											<tbody>
 												<tr>
 													<td>1</td>
-													<td>Егорова</td>
-													<td>Ольга Евгеньевна</td>
+													<td>Егорова Ольга Евгеньевна</td>
 													<td>участковый-терапевт</td>
 													<td>29.11.2019 10:00</td>
 
 												</tr>
 												<tr>
 													<td>2</td>
-													<td>Петрова</td>
-													<td>Анастасия Андреевна</td>
+													<td>Петрова Анастасия Андреевна</td>
 													<td>врач-кардиолог</td>
 													<td>30.11.2019 14:00</td>
 												</tr>
