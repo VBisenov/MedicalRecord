@@ -19,7 +19,7 @@ public class LKServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
-        if(session.isNew() || session.getAttribute("name") == null)
+        if(session.getAttribute("name") == null)
         {
             req.getRequestDispatcher("index.html").forward(req, resp);
         }
