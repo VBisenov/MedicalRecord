@@ -23,6 +23,10 @@ public class LKServlet extends HttpServlet {
         {
             req.getRequestDispatcher("index.html").forward(req, resp);
         }
+
+        Client client = (Client) session.getAttribute("client");
+
+        System.out.println("qq"+client);
         System.out.println("lk");
 
         req.getRequestDispatcher("lk.jsp").forward(req, resp);

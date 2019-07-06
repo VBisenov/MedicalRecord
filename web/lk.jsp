@@ -215,7 +215,7 @@ To change this template use File | Settings | File Templates.
 												<th scope="col">Фамилия</th>
 												<th scope="col">Имя Отчество</th>
 												<th scope="col">Должность</th>
-												<th scope="col">Оценить</th>
+												<th scope="col">Оценка</th>
 											</tr>
 											</thead>
 											<tbody>
@@ -231,14 +231,14 @@ To change this template use File | Settings | File Templates.
 												<td>Куликов</td>
 												<td>Евгений Андреевич</td>
 												<td>врач-кардиолог</td>
-												<td><button><a href="quality.html">оценить</a></button></td>
+												<td><button><a href="quality.jsp">оценить</a></button></td>
 											</tr>
 											<tr>
 												<td>3</td>
 												<td>Сергеева</td>
 												<td>Светлана Александровна</td>
 												<td>врач-эндокринолог</td>
-												<td><button><a href="quality.html">оценить</a></button></td>
+												<td><button><a href="quality.jsp">оценить</a></button></td>
 											</tr>
 											</tbody>
 										</table>

@@ -11,6 +11,6 @@ import java.io.IOException;
 public class QualityServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("quality.html").forward(req, resp);
+        req.getRequestDispatcher("quality.jsp").forward(req, resp);
     }
 }

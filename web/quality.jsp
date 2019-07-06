@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<%--
+Created by IntelliJ IDEA.
+User: Vladimir
+Date: 09.05.2019
+Time: 16:22
+To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" charset="UTF-8"/>
@@ -103,14 +110,14 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"><span >Хожиакбар</span></span> </a>
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"><span ><%out.println(session.getAttribute("name"));%></span></span> </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
                                 <div class="user-box">
                                     <div class="u-img"><img src="assets/img/profile.jpg" alt="user"></div>
                                     <div class="u-text">
-                                        <h4>Хожиакбар</h4>
-                                        <p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">Посмотреть профиль</a></div>
+                                        <h4><%out.println(session.getAttribute("name"));%></h4>
+                                        <p class="text-muted"><%out.println(session.getAttribute("phoneNumber"));%></p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">Посмотреть профиль</a></div>
                                 </div>
                             </li>
                             <div class="dropdown-divider"></div>
@@ -133,7 +140,7 @@
                 <div class="info">
                     <a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span name="setName">
-									Хожиакбар
+									<%out.println(session.getAttribute("name"));%>
 									<span class="user-level"><font size="2">Пациент</font></span>
 									<span class="caret"></span>
 								</span>

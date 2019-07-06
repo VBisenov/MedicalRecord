@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.sql.Date;
@@ -23,9 +24,9 @@ public class VisitPopulateServlet extends HttpServlet {
         String doctorName = req.getParameter("doctorName");
         Date date = Date.valueOf(req.getParameter("date"));
         System.out.println(doctorName);
-        String time = req.getParameter("time");
+        Time time = Time.valueOf(req.getParameter("time"));
 
-        Visit visit = new Visit(1, doctorName, speciality, time, date);
+        Visit visit = new Visit(1, doctorName, speciality, time, date, null);
 
         VisitDAOImpl dao = new VisitDAOImpl();
         dao.insert(visit);
