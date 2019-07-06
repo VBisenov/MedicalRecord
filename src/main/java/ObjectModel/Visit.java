@@ -1,20 +1,23 @@
 package ObjectModel;
 
-import java.time.LocalDate;
+import java.sql.Time;
 import java.sql.Date;
 import java.util.Objects;
 
 public class Visit {
     private int id;
-    private String doctorFullName, doctorJobTitle, time;
-    Date date;
+    private String doctorFullName, doctorJobTitle;
+    private Time time;
+    private Date date;
+    private Rate rate;
 
-    public Visit(int id, String doctorFullName, String doctorJobTitle, String time, Date date) {
+    public Visit(int id, String doctorFullName, String doctorJobTitle, Time time, Date date, Rate rate) {
         this.id = id;
         this.doctorFullName = doctorFullName;
         this.doctorJobTitle = doctorJobTitle;
         this.time = time;
         this.date = date;
+        this.rate = rate;
     }
 
     public int getId() {
@@ -41,11 +44,11 @@ public class Visit {
         this.doctorJobTitle = doctorJobTitle;
     }
 
-    public String getTime() {
+    public Time getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(Time time) {
         this.time = time;
     }
 
@@ -57,14 +60,23 @@ public class Visit {
         this.date = date;
     }
 
+    public Rate getRate() {
+        return rate;
+    }
+
+    public void setRate(Rate rate) {
+        this.rate = rate;
+    }
+
     @Override
     public String toString() {
         return "Visit{" +
                 "id=" + id +
                 ", doctorFullName='" + doctorFullName + '\'' +
                 ", doctorJobTitle='" + doctorJobTitle + '\'' +
-                ", time='" + time + '\'' +
+                ", time=" + time +
                 ", date=" + date +
+                ", rate=" + rate +
                 '}';
     }
 
@@ -74,14 +86,15 @@ public class Visit {
         if (!(o instanceof Visit)) return false;
         Visit visit = (Visit) o;
         return getId() == visit.getId() &&
-                Objects.equals(getDoctorFullName(), visit.getDoctorFullName()) &&
-                Objects.equals(getDoctorJobTitle(), visit.getDoctorJobTitle()) &&
-                Objects.equals(getTime(), visit.getTime()) &&
-                Objects.equals(getDate(), visit.getDate());
+                getDoctorFullName().equals(visit.getDoctorFullName()) &&
+                getDoctorJobTitle().equals(visit.getDoctorJobTitle()) &&
+                getTime().equals(visit.getTime()) &&
+                getDate().equals(visit.getDate()) &&
+                getRate().equals(visit.getRate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getDoctorFullName(), getDoctorJobTitle(), getTime(), getDate());
+        return Objects.hash(getId(), getDoctorFullName(), getDoctorJobTitle(), getTime(), getDate(), getRate());
     }
 }

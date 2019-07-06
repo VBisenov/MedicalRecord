@@ -34,7 +34,9 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("name", client.getName());
                 session.setAttribute("phoneNumber", client.getPhone_number());
 
+                System.out.println("output in LoginServlet:");
                 System.out.println(client);
+                System.out.println("________________________");
                 req.getRequestDispatcher("/lk").forward(req, resp);
             }
         }

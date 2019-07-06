@@ -215,7 +215,7 @@ To change this template use File | Settings | File Templates.
 												<th scope="col">№</th>
 												<th scope="col">ФИО</th>
 												<th scope="col">Должность</th>
-												<th scope="col">Оценить</th>
+												<th scope="col">Оценка</th>
 											</tr>
 											</thead>
 											<tbody>
