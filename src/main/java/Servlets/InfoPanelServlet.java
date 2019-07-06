@@ -23,11 +23,6 @@ public class InfoPanelServlet extends HttpServlet {
             req.getRequestDispatcher("index.html").forward(req, resp);
         }
 
-
-        req.setAttribute("name", req.getParameter("name"));
-
-        System.out.println("info");
-
         req.getRequestDispatcher("lk.jsp").forward(req, resp);
     }
 }

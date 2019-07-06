@@ -1,11 +1,12 @@
 package DAO;
 
-import ObjectModel.Client;
+import ObjectModel.Visit;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class test {
     public static void main(String[] args) {
-        Client client = new Client(2, "Павел", "Бастриков","Olegovich","st.qw", "9835235", "12424");
-        ClientDAOImpl dao = new ClientDAOImpl();
-        dao.insert(client);
     }
 }

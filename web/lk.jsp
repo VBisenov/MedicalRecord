@@ -6,6 +6,7 @@ Time: 16:22
 To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" charset="UTF-8"/>
@@ -212,34 +213,20 @@ To change this template use File | Settings | File Templates.
 											<thead>
 											<tr>
 												<th scope="col">№</th>
-												<th scope="col">Фамилия</th>
-												<th scope="col">Имя Отчество</th>
+												<th scope="col">ФИО доктора</th>
 												<th scope="col">Должность</th>
 												<th scope="col">Оценка</th>
 											</tr>
 											</thead>
 											<tbody>
-											<tr>
-												<td>1</td>
-												<td>Рыженкова</td>
-												<td>Ирина Борисовна</td>
-												<td>участковый-терапевт</td>
-												<td><button><a href="/quality">оценить</a></button></td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td>Куликов</td>
-												<td>Евгений Андреевич</td>
-												<td>врач-кардиолог</td>
-												<td><button><a href="quality.jsp">оценить</a></button></td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td>Сергеева</td>
-												<td>Светлана Александровна</td>
-												<td>врач-эндокринолог</td>
-												<td><button><a href="quality.jsp">оценить</a></button></td>
-											</tr>
+											<c:forEach items="${previousVisits}" var="visit">
+												<tr>
+													<th scope="col">${visit.id}</th>
+													<th scope="col">${visit.doctorFullName}</th>
+													<th scope="col">${visit.doctorJobTitle}</th>
+													<td><button><a href="/quality">оценить</a></button></td>
+												</tr>
+											</c:forEach>
 											</tbody>
 										</table>
 									</div>
@@ -256,28 +243,50 @@ To change this template use File | Settings | File Templates.
 											<thead>
 												<tr>
 													<th scope="col">№</th>
-													<th scope="col">Фамилия</th>
-													<th scope="col">Имя Отчество</th>
+													<th scope="col">ФИО доктора</th>
 													<th scope="col">Должность</th>
 													<th scope="col">Дата и время</th>
 												</tr>
 											</thead>
 											<tbody>
+											<c:forEach items="${nextVisits}" var="visit">
 												<tr>
-													<td>1</td>
-													<td>Егорова</td>
-													<td>Ольга Евгеньевна</td>
-													<td>участковый-терапевт</td>
-													<td>29.11.2019 10:00</td>
+													<th scope="col">${visit.id}</th>
+													<th scope="col">${visit.doctorFullName}</th>
+													<th scope="col">${visit.doctorJobTitle}</th>
+													<th scope="col">${visit.date}/${visit.time}</th>
+												</tr>
+											</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="card">
+									<div class="card-header ">
+										<h4 class="card-title">Сегодняшние посещения</h4>
 
-												</tr>
+									</div>
+									<div class="card-body">
+										<table class="table table-head-bg-success table-striped table-hover">
+											<thead>
+											<tr>
+												<th scope="col">№</th>
+												<th scope="col">ФИО доктора</th>
+												<th scope="col">Должность</th>
+												<th scope="col">Время</th>
+											</tr>
+											</thead>
+											<tbody>
+											<c:forEach items="${currentVisits}" var="visit">
 												<tr>
-													<td>2</td>
-													<td>Петрова</td>
-													<td>Анастасия Андреевна</td>
-													<td>врач-кардиолог</td>
-													<td>30.11.2019 14:00</td>
+													<th scope="col">${visit.id}</th>
+													<th scope="col">${visit.doctorFullName}</th>
+													<th scope="col">${visit.doctorJobTitle}</th>
+													<th scope="col">${visit.time}</th>
 												</tr>
+											</c:forEach>
 											</tbody>
 										</table>
 									</div>

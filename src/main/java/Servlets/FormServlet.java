@@ -20,9 +20,9 @@ public class FormServlet extends HttpServlet {
             req.getRequestDispatcher("index.html").forward(req, resp);
         }
 
-        String name = (String) req.getParameter("name");
+        String name = (String) session.getAttribute("name");
 
-        System.out.println(name);
+        System.out.println("output in FormServlet "+name);
         req.setAttribute("name", name);
         req.getRequestDispatcher("/forms.jsp").forward(req, resp);
     }

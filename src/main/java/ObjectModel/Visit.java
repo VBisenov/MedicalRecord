@@ -20,6 +20,14 @@ public class Visit {
         this.rate = rate;
     }
 
+    public Visit(int id, String doctorFullName, String doctorJobTitle, Time time, Date date) {
+        this.id = id;
+        this.doctorFullName = doctorFullName;
+        this.doctorJobTitle = doctorJobTitle;
+        this.time = time;
+        this.date = date;
+    }
+
     public int getId() {
         return id;
     }
